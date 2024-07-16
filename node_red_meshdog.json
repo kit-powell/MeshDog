@@ -1,0 +1,422 @@
+[
+    {
+        "id": "ffbbb696c2ac1976",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "90b9cc5625900f3d",
+        "type": "serial in",
+        "z": "ffbbb696c2ac1976",
+        "name": "",
+        "serial": "6d5df3cd72744704",
+        "x": 110,
+        "y": 60,
+        "wires": [
+            [
+                "c1217dece0abc86b"
+            ]
+        ]
+    },
+    {
+        "id": "963831fce1b18a2f",
+        "type": "inject",
+        "z": "ffbbb696c2ac1976",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 20,
+        "wires": [
+            [
+                "7e744f403164eee6"
+            ]
+        ]
+    },
+    {
+        "id": "c1217dece0abc86b",
+        "type": "json",
+        "z": "ffbbb696c2ac1976",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": true,
+        "x": 250,
+        "y": 60,
+        "wires": [
+            [
+                "ae4ae6f57e87527d",
+                "32d0a8700f06558a",
+                "fb52de46fab0a37b",
+                "e72bedd9206798b2"
+            ]
+        ]
+    },
+    {
+        "id": "60e3343921c04a4e",
+        "type": "ui_text",
+        "z": "ffbbb696c2ac1976",
+        "group": "5a390c67a41e8ad2",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Time",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 570,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "ae4ae6f57e87527d",
+        "type": "function",
+        "z": "ffbbb696c2ac1976",
+        "name": "Gas_R",
+        "func": "msg.payload = msg.payload.Gas_R\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 240,
+        "wires": [
+            [
+                "21e47de2f27686fe"
+            ]
+        ]
+    },
+    {
+        "id": "32d0a8700f06558a",
+        "type": "function",
+        "z": "ffbbb696c2ac1976",
+        "name": "pressure",
+        "func": "msg.payload = msg.payload.pressure\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 180,
+        "wires": [
+            [
+                "63bfda8cfec08b48"
+            ]
+        ]
+    },
+    {
+        "id": "fb52de46fab0a37b",
+        "type": "function",
+        "z": "ffbbb696c2ac1976",
+        "name": "humidity",
+        "func": "msg.payload = msg.payload.humidity\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 120,
+        "wires": [
+            [
+                "6eaa431a0ffb63e6"
+            ]
+        ]
+    },
+    {
+        "id": "e72bedd9206798b2",
+        "type": "function",
+        "z": "ffbbb696c2ac1976",
+        "name": "temp",
+        "func": "msg.payload = msg.payload.temp\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 60,
+        "wires": [
+            [
+                "a57626c4629d5b2b"
+            ]
+        ]
+    },
+    {
+        "id": "a57626c4629d5b2b",
+        "type": "ui_chart",
+        "z": "ffbbb696c2ac1976",
+        "name": "",
+        "group": "5a390c67a41e8ad2",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "label": "Air Temp",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 580,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6eaa431a0ffb63e6",
+        "type": "ui_chart",
+        "z": "ffbbb696c2ac1976",
+        "name": "",
+        "group": "5a390c67a41e8ad2",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "label": "Humidity",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#f28202",
+            "#aec7e8",
+            "#ff7f0e",
+            "#07cf07",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 580,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "63bfda8cfec08b48",
+        "type": "ui_chart",
+        "z": "ffbbb696c2ac1976",
+        "name": "",
+        "group": "5a390c67a41e8ad2",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "label": "Atmospheric Pressure",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1eb357",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 620,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "21e47de2f27686fe",
+        "type": "ui_chart",
+        "z": "ffbbb696c2ac1976",
+        "name": "",
+        "group": "5a390c67a41e8ad2",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "label": "Gas Resistance",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#f00000",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 600,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7e744f403164eee6",
+        "type": "simpletime",
+        "z": "ffbbb696c2ac1976",
+        "name": "",
+        "mydate": false,
+        "myymd": false,
+        "myyear": false,
+        "mymonth": false,
+        "mymonthn": false,
+        "mymonthf": false,
+        "mydom": false,
+        "mydoy": false,
+        "myday": false,
+        "mydayf": false,
+        "myhourpm": false,
+        "myhour": false,
+        "mytime": false,
+        "mytimes": false,
+        "myminute": false,
+        "myminutes": false,
+        "mysecond": false,
+        "mymillis": false,
+        "myepoch": false,
+        "myrawdate": true,
+        "mypm": false,
+        "x": 310,
+        "y": 20,
+        "wires": [
+            [
+                "60e3343921c04a4e"
+            ]
+        ]
+    },
+    {
+        "id": "6d5df3cd72744704",
+        "type": "serial-port",
+        "name": "",
+        "serialport": "/dev/ttyUSB0",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "5a390c67a41e8ad2",
+        "type": "ui_group",
+        "name": "AirQ Chart",
+        "tab": "4f2df382d04f8cd2",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "4f2df382d04f8cd2",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
